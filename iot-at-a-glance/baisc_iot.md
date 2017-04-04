@@ -46,7 +46,8 @@ Thiết bị IOT tự nhiên dễ bị tổn thương các mối đe dọa an ni
 ## 6. Công nghệ hỗ trợ IoT
 ![Tech supporting IoT](techiot.jpg)
 ## 7. References
-[realyze.in](https://realyze.in/downloads/TheInternetofThings.pdf)
-[businessinsider.com](http://www.businessinsider.com/internet-of-things-smart-home-automation-2016-8)
-[iot-analytics.com](https://iot-analytics.com/top-10-iot-project-application-areas-q3-2016/)
+[Ovidiu Vermesan and Peter Friess. 2014. Internet of Things – From Research and Innovation to Market Deployment.](https://www.researchgate.net/profile/Patrick_Guillemin/publication/265689193_IoT-From_Research_and_Innovation_to_Market_Deployment_IERC_Cluster_eBook_978-87-93102-95-8_P/links/541932c10cf203f155adc4f4.pdf)
+[Michael Chui, Markus Löf er, and Roger Roberts. 2010. The Internet of Things.](https://realyze.in/downloads/TheInternetofThings.pdf)
+[Andrew Meola. December 19, 2016. How IoT & smart home automation will change the way we live.](http://www.businessinsider.com/internet-of-things-smart-home-automation-2016-8)
+[Janina Bartje. August 16, 2016. The top 10 IoT application areas – based on real IoT projects.](https://iot-analytics.com/top-10-iot-project-application-areas-q3-2016/)
 
