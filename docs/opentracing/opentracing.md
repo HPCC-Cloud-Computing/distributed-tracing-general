@@ -32,3 +32,5 @@ Hai khía cạnh cơ bản thực hiện OpenTracing trên cơ sở hạ tầng 
 ![span](span.png)
 * Relationships là các kết nối giữa các Span có thể không có hoặc nhiều hơn. Các kết nối giữa Spans giúp mô tả ngữ nghĩa của hệ thống đang chạy, cũng như con đường quan trọng cho các giao dịch nhạy cảm với độ trễ.
 ![relationship](relationship.png)
+## 6. References
+[Opentracing documentation](http://opentracing.io/documentation/)
