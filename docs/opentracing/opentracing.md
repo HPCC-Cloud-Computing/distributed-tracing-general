@@ -28,12 +28,15 @@ OpenTracing định nghĩa một API thông qua đó thiết bị ứng dụng c
 * Sky-walking: hỗ trợ client Java.
 ## 5. OpenTracing software architecture
 Dấu vết trong OpenTracing được xác định một cách ngầm định bởi spans của chúng. Cụ thể, dấu vết có thể được xem như là một đồ thị có hướng không chu trình (Directed Acyclic Graph) của spans, trong đó các cạnh giữa các spans được gọi là references.
+
 ![software architecture](software_architecture.png)
 ## 6. Data model của OpenTracing
 Hai khía cạnh cơ bản thực hiện OpenTracing trên cơ sở hạ tầng là Spans và Relationships.
 * Các spans là các đơn vị hợp lý của công việc trong một hệ thống phân phối và theo định nghĩa tất cả chúng đều có tên, thời gian bắt đầu và một khoảng thời gian. Trong một dấu vết, các khoảng được kết hợp với các hệ thống phân phối đã tạo ra chúng.
+
 ![span](span.png)
 * Relationships là các kết nối giữa các Span có thể không có hoặc nhiều hơn. Các kết nối giữa Spans giúp mô tả ngữ nghĩa của hệ thống đang chạy, cũng như con đường quan trọng cho các giao dịch nhạy cảm với độ trễ.
+
 ![relationship](relationship.png)
 * Mối quan hệ giữa spans và một truy vết
 ```
