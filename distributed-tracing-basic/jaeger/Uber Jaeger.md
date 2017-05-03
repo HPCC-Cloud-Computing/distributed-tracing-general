@@ -3,7 +3,7 @@
 * **Bối cảnh**: Việc truy xuất phân tán trở thành một thành phần phải có các công cụ mà một tổ chức sử dụng để giám sát các kiến trúc phức tạp dựa trên kiến trúc microservice
 * **Từ Monolith đến Microservices**: Vì hoạt động kinh doanh của Uber đã phát triển theo cấp số nhân nên sự phức tạp của kiến trúc phần mềm.  Điều này một phần là do sự gia tăng số lượng các tính năng kinh doanh – người dùng mà hệ thống phải đối mặt, cũng như các chức năng nội bộ như phát hiện gian lận, khai thác dữ liệu và xử lý bản đồ. Một lý do khác là chuyển các ứng dụng sang kiến trúc microservices phân phối. Di chuyển vào một hệ sinh thái microservices mang lại nhưng thách thức riêng. Đó là sự mất khả năng hiển thị trong hệ thống, các tương tác phức tạp giữa các dịch vụ. Các công cụ giám sát truyền thống như số liệu và phân loại phân tán  vẫn có vị trí cửa chúng, tuy nhiên chúng thường không cung cấp khả năng hiển thi qua các dịch vụ. Đây là nơi phát tán các dấu vết 
 * **Tại Uber Engineering**:hệ thống phân phối mã nguồn mở Jaeger đã nhận được sự chấp nhận nội bô vào năm 2016, được tích hợp vào hàng tram microservices và ghi lại hàng nghìn dấu vết mỗi giây.
-* 
+
 ## 2. Tracing Uber’s Beginning
 * Hệ thống truy tìm được sử dụng rộng rãi đầu tiền ở Uber là Merckx. Nó nhanh chóng trả lời các câu hỏi về sự phức tạp về phụ trợ Python nguyên khối của Uber. Dữ liệu profiling được tổ chức thành các khối, với mỗi khối đại diện cho một hoạt động nhất định.
 
