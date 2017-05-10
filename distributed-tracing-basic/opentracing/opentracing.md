@@ -30,37 +30,21 @@ OpenTracing chỉ định nghĩa API thông qua đó những công cụ ở ứn
 
 ## 5. OpenTracing software architecture
 Dấu vết trong OpenTracing được xác định một cách ngầm định bởi spans của chúng. Cụ thể:
-Một truy vết có thể được xem như là một đồ thị có hướng không chu trình (Directed Acyclic Graph) của spans, trong đó các cạnh giữa các spans được gọi là references.
-Một span đại diện cho một tiến trình được gọi trong yêu cầu nói trên, nó có chứa thông tin về tên tiến trình, thời gian bắt đầu, kết thúc, định danh của span v.v.
+* Một truy vết có thể được xem như là một đồ thị có hướng không chu trình (Directed Acyclic Graph) của spans, trong đó các cạnh giữa các spans được gọi là references.
+* Một span đại diện cho một tiến trình được gọi trong yêu cầu nói trên, nó có chứa thông tin về tên tiến trình, thời gian bắt đầu, kết thúc, định danh của span v.v.
 
 ![software architecture](software_architecture.png)
 
 ## 6. Data model của OpenTracing
-Hai khía cạnh cơ bản thực hiện OpenTracing trên cơ sở hạ tầng là Spans và Relationships.
-* Các spans là các đơn vị hợp lý của công việc trong một hệ thống phân phối và theo định nghĩa tất cả chúng đều có tên, thời gian bắt đầu và một khoảng thời gian. Trong một dấu vết, các khoảng được kết hợp với các hệ thống phân phối đã tạo ra chúng.
+Hai khía cạnh cơ bản thực hiện OpenTracing trên cơ sở hạ tầng là Spans và Relationships:
+### 1. Các spans là các đơn vị hợp lý của công việc trong một hệ thống phân phối và theo định nghĩa tất cả chúng đều có tên, thời gian bắt đầu và một khoảng thời gian. Trong một dấu vết, các khoảng được kết hợp với các hệ thống phân phối đã tạo ra chúng.
 
 ![span](span.png)
 * Relationships là các kết nối giữa các Span có thể không có hoặc nhiều hơn. Các kết nối giữa Spans giúp mô tả ngữ nghĩa của hệ thống đang chạy, cũng như con đường quan trọng cho các giao dịch nhạy cảm với độ trễ.
 
 ![relationship](relationship.png)
-* Mối quan hệ giữa spans và một truy vết
-```
-        [Span A]  ←←←(the root span)
-            |
-     +------+------+
-     |             |
- [Span B]      [Span C] ←←←(Span C is a `ChildOf` Span A)
-     |             |
- [Span D]      +---+-------+
-               |           |
-           [Span E]    [Span F] >>> [Span G] >>> [Span H]
-                                       ↑
-                                       ↑
-                                       ↑
-                         (Span G `FollowsFrom` Span F)
-```
 
-ChildOf: Một span có thể là 'ChildOf' của một span cha, span cha phụ thuộc vào span con một phần nào đó. Các ví dụ sau có thể có mối quan hệ 'ChildOf':
+* **ChildOf**: Một span có thể là 'ChildOf' của một span cha, span cha phụ thuộc vào span con một phần nào đó. Các ví dụ sau có thể có mối quan hệ 'ChildOf':
 * Một span biễu diễn RPC (Remote procedure call) ở phía server có thể là 'ChildOf' của span biểu diễn RPC đó ở phía client.
 * Một span biểu diễn câu lệnh ghi SQL (Structured query language) có thể là 'ChildOf' của span biểu diễn phương thức lưu trữ ORM (Object-relational mapping).
 
@@ -77,7 +61,7 @@ Dưới đây có thể là biểu đồ thời gian của mối quan hệ 'Chil
          [-Child Span E----]
 ```
 
-FollowsFrom: Một vài span cha không hề phụ thuộc vào kết quả của span con, ở trường hợp như vậy chúng ta nói span con 'FollowsFrom' span cha. 
+* **FollowsFrom**: Một vài span cha không hề phụ thuộc vào kết quả của span con, ở trường hợp như vậy chúng ta nói span con 'FollowsFrom' span cha. 
 
 ```
 Dưới đây có thể là biểu đồ thời gian của mối quan hệ 'FollowsFrom'
@@ -90,6 +74,24 @@ Dưới đây có thể là biểu đồ thời gian của mối quan hệ 'Foll
 
     [-Parent Span-]
                 [-Child Span-]
+```
+
+### 2. Mối quan hệ giữa spans và một truy vết
+
+```
+        [Span A]  ←←←(the root span)
+            |
+     +------+------+
+     |             |
+ [Span B]      [Span C] ←←←(Span C is a `ChildOf` Span A)
+     |             |
+ [Span D]      +---+-------+
+               |           |
+           [Span E]    [Span F] >>> [Span G] >>> [Span H]
+                                       ↑
+                                       ↑
+                                       ↑
+                         (Span G `FollowsFrom` Span F)
 ```
 
 Truy vết còn thế thể được biểu thị sử dụng trục đồ thị thời gian như biểu đồ dưới đây:
