@@ -40,7 +40,7 @@ Hai khía cạnh cơ bản thực hiện OpenTracing trên cơ sở hạ tầng 
 ### 1. Các spans là các đơn vị hợp lý của công việc trong một hệ thống phân phối và theo định nghĩa tất cả chúng đều có tên, thời gian bắt đầu và một khoảng thời gian. Trong một dấu vết, các khoảng được kết hợp với các hệ thống phân phối đã tạo ra chúng.
 
 ![span](span.png)
-* Relationships là các kết nối giữa các Span có thể không có hoặc nhiều hơn. Các kết nối giữa Spans giúp mô tả ngữ nghĩa của hệ thống đang chạy, cũng như con đường quan trọng cho các giao dịch nhạy cảm với độ trễ.
+### 2. Relationships là các kết nối giữa các Span có thể không có hoặc nhiều hơn. Các kết nối giữa Spans giúp mô tả ngữ nghĩa của hệ thống đang chạy, cũng như con đường quan trọng cho các giao dịch nhạy cảm với độ trễ.
 
 ![relationship](relationship.png)
 
@@ -76,7 +76,7 @@ Dưới đây có thể là biểu đồ thời gian của mối quan hệ 'Foll
                 [-Child Span-]
 ```
 
-### 2. Mối quan hệ giữa spans và một truy vết
+Mối quan hệ giữa spans và một truy vết
 
 ```
         [Span A]  ←←←(the root span)
