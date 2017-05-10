@@ -37,14 +37,14 @@ Dấu vết trong OpenTracing được xác định một cách ngầm định b
 
 ## 6. Data model của OpenTracing
 Hai khía cạnh cơ bản thực hiện OpenTracing trên cơ sở hạ tầng là Spans và Relationships:
-### 1. Các spans là các đơn vị hợp lý của công việc trong một hệ thống phân phối và theo định nghĩa tất cả chúng đều có tên, thời gian bắt đầu và một khoảng thời gian. Trong một dấu vết, các khoảng được kết hợp với các hệ thống phân phối đã tạo ra chúng.
+1. Các spans là các đơn vị hợp lý của công việc trong một hệ thống phân phối và theo định nghĩa tất cả chúng đều có tên, thời gian bắt đầu và một khoảng thời gian. Trong một dấu vết, các khoảng được kết hợp với các hệ thống phân phối đã tạo ra chúng.
 
 ![span](span.png)
-### 2. Relationships là các kết nối giữa các Span có thể không có hoặc nhiều hơn. Các kết nối giữa Spans giúp mô tả ngữ nghĩa của hệ thống đang chạy, cũng như con đường quan trọng cho các giao dịch nhạy cảm với độ trễ.
+2. Relationships là các kết nối giữa các Span có thể không có hoặc nhiều hơn. Các kết nối giữa Spans giúp mô tả ngữ nghĩa của hệ thống đang chạy, cũng như con đường quan trọng cho các giao dịch nhạy cảm với độ trễ.
 
 ![relationship](relationship.png)
 
-* **ChildOf**: Một span có thể là 'ChildOf' của một span cha, span cha phụ thuộc vào span con một phần nào đó. Các ví dụ sau có thể có mối quan hệ 'ChildOf':
+**ChildOf**: Một span có thể là 'ChildOf' của một span cha, span cha phụ thuộc vào span con một phần nào đó. Các ví dụ sau có thể có mối quan hệ 'ChildOf':
 * Một span biễu diễn RPC (Remote procedure call) ở phía server có thể là 'ChildOf' của span biểu diễn RPC đó ở phía client.
 * Một span biểu diễn câu lệnh ghi SQL (Structured query language) có thể là 'ChildOf' của span biểu diễn phương thức lưu trữ ORM (Object-relational mapping).
 
@@ -61,7 +61,7 @@ Dưới đây có thể là biểu đồ thời gian của mối quan hệ 'Chil
          [-Child Span E----]
 ```
 
-* **FollowsFrom**: Một vài span cha không hề phụ thuộc vào kết quả của span con, ở trường hợp như vậy chúng ta nói span con 'FollowsFrom' span cha. 
+**FollowsFrom**: Một vài span cha không hề phụ thuộc vào kết quả của span con, ở trường hợp như vậy chúng ta nói span con 'FollowsFrom' span cha. 
 
 ```
 Dưới đây có thể là biểu đồ thời gian của mối quan hệ 'FollowsFrom'
