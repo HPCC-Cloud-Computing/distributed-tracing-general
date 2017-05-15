@@ -7,9 +7,10 @@
 
 ## 2. Cài đặt
 1. Tải về docker [tại đây](https://www.docker.com/community-edition)
-2. Khởi động Zipkin  `docker run -d -p 9411:9411 openzipkin/zipkin`
-3. Tải về virtualenv `pip install virtualenv`
-4. Khởi tạo môi trường test `virtualenv env`
-5. Activate môi trường test `source env/bin/activate`
-6. Cài đặt python packages trên môi trường test <br>`cd zipkin-python-opentracing` & `python setup.py install`
-7. Chạy server `python server.py`, client `python client.py [host IP]`
+2. Clone [openzipkin-python-client](https://github.com/lookfwd/zipkin-python-opentracing)
+3. Khởi động Zipkin  `docker run -d -p 9411:9411 openzipkin/zipkin`
+4. Tải về virtualenv `pip install virtualenv`
+5. Khởi tạo môi trường test `virtualenv env`
+6. Activate môi trường test `source env/bin/activate` 
+7. Cài đặt python packages trên môi trường test <br>`cd zipkin-python-opentracing` & `python setup.py install` & `pip install unicodecsv`
+8. Chạy server `python server.py`, client `python client.py [host IP]`
